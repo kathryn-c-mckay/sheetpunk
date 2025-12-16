@@ -1,0 +1,26 @@
+  GNU nano 7.2                                      wtklprojects.ca.conf
+    include /etc/letsencrypt/options-ssl-nginx.conf; # managed by Certbot
+    ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem; # managed by Certbot
+
+
+}
+server {
+    if ($host = www.wtklprojects.ca) {
+        return 301 https://$host$request_uri;
+    } # managed by Certbot
+
+
+    if ($host = wtklprojects.ca) {
+        return 301 https://$host$request_uri;
+    } # managed by Certbot
+
+
+    listen         80;
+    listen         [::]:80;
+    server_name    wtklprojects.ca www.wtklprojects.ca;
+    return 404; # managed by Certbot
+
+
+
+
+}

@@ -1,0 +1,53 @@
+{
+    "American":  
+        {
+            "Name": "The American",
+            "Description": "You grew up in a big city on the Eastern Seaboard of the United States, the scion of a prominent family, but you detested that life–the formality, the\npretension, the venomous hypocrisy–and so you went West. You had adventures, got good with a gun, even joined a traveling show for a time… but\nthen came the curse, and everything changed. You did your best to control it, and some nights were definitely worse than others, but eventually it got o be too much. Even your days were affected by the changes within you; your behavior became reckless and unpredictable. And then you had to run,\nfar away. In the end, it was London calling: a thick, throbbing mass of humanity within which to lose yourself—the whole world and all its lovely pleasures\nright within your grasp. But the curse has found you, like it always does. Hopefully these new folks, these hunters you’ve thrown in with, can\nhelp you–help you for good, permanent-like—when the time comes.\n",
+            "Playbook Moves": 
+                {
+                    "Default Move": "You start with 'The Quickening. Choose one more from the reverse side",
+                    "The Quickening": "You live with a curse that causes you to become savage—even feral—to\nthe point where your body physically changes. At the start of the Dusk phase, roll with\nComposure or Sensitivity, your choice. On a 10+, your body is stronger and faster, and you\nmanage to keep the quickening in check. You roll with Advantage when taking actions that\nuse Vitality until the next Dawn phase. On a 7-9, you manage to keep the quickening in\ncheck, but just barely; take the following Condition: Drained. On a Miss, you are going to\nlose control \n* Retire this character and tell the Keeper to put The Cursed in play OR\n* Reveal your curse to another hunter and ask for their help controlling you this night.\nIf they agree, neither of you can take any action that would trigger a move during the\nupcoming Night phase, though you should narrate scenes showing how the\ncursed character is being controlled throughout the night. During\nthe Dawn phase, you each mark 1 XP. This option can only be\nchosen once\nOn a 12+, your heightened sense of hearing and smell will help you\nuncover an additional Clue that no other hunter would be able to\ndetect. During the Dawn phase, tell the Keeper what the Clue is;\nit cannot conclusively answer a Question.",
+                    "The Awakened Soul": "You are sensitive to the desires and behaviors of animals. When you\nencounter an animal, you may ask the Keeper, “What does this animal want me to do?” The\nKeeper will answer truthfully and completely. When you act on the answer or pursue a course\nof action in which an intuitive understanding of an animal’s behavior would be helpful, any\nassociated rolls are taken with Advantage.",
+                    "Fastest Gun In The West":"When you take this move, add the 1851 Colt Navy Revolver to\nyour Personal Quarters. This item is never marked when using it to take advantage on a die\nroll. After a die roll, you can choose to mark it in order to re-roll one die of your choice.",
+                    "As Cruel As The Harlot's Curse":"When you indulge your vice—alone—in the dark and\nseedy underbelly of London in order to deaden your senses, roll with Vitality. On a hit, clear a\nCondition and choose one !om the list below. On a 10+, choose two.\n* You don’t draw any unwanted attention.\n* You befriend a Side Character.\n* You gain some resistance to your curse; on your next Quickening roll, increase the success tier by one step.\n* ou stumble on a Clue. Tell the Keeper what it is. The Clue cannot conclusively answer a Question by itself\nOn a 12+, you take a memento; ask another hunter what it is and then put it in your Personal Quarters",
+                    "Tall Tales": "When you tell a story from back home that is wildly unbelievable in order to charm\nsomeone, roll with Presence. On a hit, they fall for your charm and do as you wish OR reveal\na Clue, your choice. On a 10+, they won’t ask for anything in return. On a 12+, they also\ngive you a keepsake to remember them by; ask another hunter what it is and then write it\ndown in your Personal Quarters.",
+                    "Disguise Kit":"You have a trunk full of costumes, wigs, makeup, props, and other supplies to\nhelp you look like someone you are not. When you rifle through the trunk, add a costume to\nyour Personal Quarters. You can do this up to five times."
+                },
+            "Abilities":
+                {
+                "Vitality": 1,
+                "Composure": 0,
+                "Reason": 0,
+                "Presence": 1,
+                "Sensitivity":0
+                },
+            "Unique Dawn Questions":
+                [
+                    "Did you stick out in London society for all the wrong reasons?",
+                    "Did you use violence to solve a problem?",
+                    "Did you encourage a fellow hunter to let loose for a change?",
+                    "Did you have a raw, passionate sexual encounter during which your feral nature manifested?",
+                    "Did you share a treasured memory from the States during an intimate moment with another character?"
+                ],
+
+            "The Mask Of The Past":
+                [  
+                    "Narrate a flashback to your childhood that\nshows the high level of privilege you were born\nin",
+                    "Narrate a flashback to your youth showing what\nan arrogant, willful brat you were.",
+                    "Narrate a flashback to your young adulthood\nthat shows the incident that made you start to\nresent, even despise, your parents.",
+                    "Narrate a flashback to the time after you finally\nwent West that shows you happy and free.",
+                    "Narrate a flashback to the incident that caused\nyou to receive the quickening curse. ",
+                    "Narrate a flashback to the time when the\nquickening curse caused you to hurt someone\nyou care about.",
+                    "Narrate a flashback showing the incident that\ncaused you to go on the run."
+                ],
+            "The Mask Of The Future":
+            {
+                "Rules": "If no boxes are marked, you can retire to safety or\nobscurity instead of putting on this mask; tell the other\nhunters what the future holds for you.\nOtherwise, mark any box you wish.",
+                "The Gilded Door": "Take the following Condition:\nMost-Beloved. Tell the other hunters they can no\nlonger choose The Gilded Door on their own\nplaybook (this does not count as being marked for\nthem). You can never clear Most-Beloved.",
+                "The Moss-Covered Gate": "Narrate a scene in\nwhich you receive a letter from one of your\nparents urging you to return home. What does\nthe letter say? Then tell the Keeper to put The\nPinkerton in play.",
+                "The Darkened Threshold": "Narrate a scene in\nwhich you hurt an innocent because of your\ncurse.",
+                "The Cosmic Passage": "Increase your Sensitivity\nby 1 (Max +3) and reduce your Reason by 2.",
+                "The Blood-Soaked Portal": "Narrate a scene\nin which you are physically destroyed. This\ncharacter is now retired"
+            } 
+        }
+}
