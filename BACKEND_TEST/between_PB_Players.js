@@ -2,9 +2,15 @@ const path = require('path');
 const fs = require('fs');
 const express =  require('express');
 const PORT = 3000;
+const cors = require ('cors');
 
 const app = express();
 charData = "";
+
+app.use(cors({
+    origin: 'http://localhost:4200'
+ 
+}));
 
 fs.readFile('characters.json', function(err, data){
     if (err) throw err;
