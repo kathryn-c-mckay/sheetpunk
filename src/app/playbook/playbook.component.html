@@ -1,2 +1,36 @@
-<p>Playbook Works!</p>
+<h1>{{playbookData.name}}</h1>
+<article>
+    <h2>Playbook Moves</h2>
+    <ul>
+        <li><strong>The Move</strong> - 'Merican Punch</li>
+    </ul>
+</article>
+<article>
+    <h2>Abilities</h2>
+    <table class="shepu-abilities">
+        <tr>
+            <td>{{ playbookData.abilities.vitality}}</td>
+            <td>{{ playbookData.abilities.composure}}</td>
+            <td>{{ playbookData.abilities.reason}}</td>
+            <td>{{ playbookData.abilities.presence}}</td>
+            <td>{{ playbookData.abilities.sensitivity}}</td>
+        </tr>
+        <tfoot>
+            <!-- TODO: add reminder text? -->
+            <th>Vitality</th>
+            <th>Composure</th>
+            <th>Reason</th>
+            <th>Presence</th>
+            <th>Sensitivity</th>
+        </tfoot>
+    </table>
+</article>
+<article>
+    <h2>Conditions</h2>
+    <ul class="shepu-conditions">
+        @for (condition of playbookData.conditions; track $index) {
+            <li>{{ condition }}</li>
+        }
+    </ul>
+</article>
 <a routerLink="">Back to home</a>
