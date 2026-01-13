@@ -1,4 +1,4 @@
-const BACKEND_API = 'http://127.0.0.1:3000/';
+const BACKEND_API = 'http://127.0.0.1:3000/api/';
 
 export const environment = {
     ENDPOINT_PLAYERS: BACKEND_API + 'players',

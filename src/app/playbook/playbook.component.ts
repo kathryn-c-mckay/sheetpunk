@@ -1,10 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { PlaybookService } from './playbook.service';
+import { AbilitiesModel } from '../shared/abilities/abilities.model';
+import { AbilitiesComponent } from '../shared/abilities/abilities.component';
 
 @Component({
   selector: 'shepu-playbook',
-  imports: [RouterLink],
+  imports: [RouterLink, AbilitiesComponent],
   templateUrl: './playbook.component.html',
 })
 export class PlaybookComponent implements OnInit {
@@ -16,7 +18,7 @@ export class PlaybookComponent implements OnInit {
       reason: 0,
       presence: 1,
       sensitivity: 0,
-    },
+    } as AbilitiesModel,
     conditions: [ "Opium-Addled" ]
   }
 

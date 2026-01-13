@@ -1,0 +1,27 @@
+<article class="shepu-gm-screen-item">
+    <h3>
+        <span><a routerLink="playbook/">{{ item().name }}</a></span>
+        <span><shepu-abilities class="shepu-abilities shepu-abilities-mini" [abilities]="item().abilities"></shepu-abilities></span>
+        <span>Masks: {{item().masksUsed}}/{{item().masksTotal}}</span>
+    </h3>
+    <section class="shepu-gm-screen-dawn-questions">
+        <h4>Dawn Questions</h4>
+        <ul>
+            @for(dawnQuestion of item().dawnQuestions; track $index) {
+                <li [class.shepu-unmarked]="!dawnQuestion.marked"><span><input type="checkbox" disabled [checked]="dawnQuestion.marked"></span>&nbsp;{{ dawnQuestion.description}}</li>
+            }  
+        </ul>
+    </section>
+    <section class="shepu-gm-screen-conditions">
+        <h4>Conditions</h4>
+        <ul>
+            @for(condition of item().conditions; track $index) {
+                <li>{{ condition }}</li>
+            }  
+        </ul>
+    </section>
+    <section class="shepu-gm-screen-personal-quarters">
+        <h4>Personal Quarters</h4>
+        <shepu-personal-quarters [editable]="false"></shepu-personal-quarters>
+    </section>
+</article>

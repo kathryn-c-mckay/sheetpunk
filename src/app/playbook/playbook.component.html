@@ -7,23 +7,7 @@
 </article>
 <article>
     <h2>Abilities</h2>
-    <table class="shepu-abilities">
-        <tr>
-            <td>{{ playbookData.abilities.vitality}}</td>
-            <td>{{ playbookData.abilities.composure}}</td>
-            <td>{{ playbookData.abilities.reason}}</td>
-            <td>{{ playbookData.abilities.presence}}</td>
-            <td>{{ playbookData.abilities.sensitivity}}</td>
-        </tr>
-        <tfoot>
-            <!-- TODO: add reminder text? -->
-            <th>Vitality</th>
-            <th>Composure</th>
-            <th>Reason</th>
-            <th>Presence</th>
-            <th>Sensitivity</th>
-        </tfoot>
-    </table>
+    <shepu-abilities [abilities]="playbookData.abilities"></shepu-abilities>
 </article>
 <article>
     <h2>Conditions</h2>
