@@ -1,20 +1,47 @@
-<h1>{{playbookData.name}}</h1>
-<article>
-    <h2>Playbook Moves</h2>
-    <ul>
-        <li><strong>The Move</strong> - 'Merican Punch</li>
-    </ul>
-</article>
-<article>
-    <h2>Abilities</h2>
-    <shepu-abilities [abilities]="playbookData.abilities"></shepu-abilities>
-</article>
-<article>
-    <h2>Conditions</h2>
-    <ul class="shepu-conditions">
-        @for (condition of playbookData.conditions; track $index) {
-            <li>{{ condition }}</li>
+
+@if(playbookData$) {
+    <!-- TODO: there has to be a better way to use observables than this, right?? -->
+    <h1>{{ (playbookData$ | async)?.name }}</h1>
+    <p>{{ (playbookData$ | async)?.description }}</p>
+    <article>
+        <h2>Abilities</h2>
+        <!-- <shepu-abilities [abilities]="playbookData()().abilities"></shepu-abilities> -->
+    </article>
+    <article>
+        <h2>Conditions</h2>
+        <ul class="shepu-conditions">
+            @for (condition of (playbookData$ | async)?.conditions; track $index) {
+                <li>{{ condition }}</li>
+            }
+        </ul>
+    </article>
+    <article>
+        <h2>Dawn Questions</h2>
+        <ul>
+            @for(dawnQuestion of (playbookData$ | async)?.dawnQuestions; track dawnQuestion.id) {
+                <li><input type="checkbox" name="'checkbox-'+ dawnQuestion.id" [id]="'checkbox-'+ dawnQuestion.id" [checked]="dawnQuestion.bMarked">{{dawnQuestion.description}}</li>
+            }
+        </ul>
+    </article>
+    <article>
+        <h2>Playbook Moves</h2>
+        <ul>
+            @for(move of (playbookData$ | async)?.moves; track move.id) {
+                <li><input type="checkbox" name="'checkbox-'+ move.id" [id]="'checkbox-move-'+ move.id" [checked]="move.bMarked"><strong>{{move.name}}</strong> - {{move.description}}</li>
+            }
+        </ul>
+    </article>
+    <article>
+        @for(maskList of (playbookData$ | async)?.masks; track maskList.maskTypeName) {
+            <h2>{{maskList.maskTypeName}}</h2>
+            <ul>
+                @for(mask of maskList.maskData; track mask.id) {
+                    <li><input type="checkbox" name="'checkbox-mask-'+ mask.id" [id]="'checkbox-'+ mask.id" [checked]="mask.bMarked">{{mask.description}}</li>
+                }
+            </ul>
         }
-    </ul>
-</article>
-<a routerLink="">Back to home</a>
+    </article>
+    <a routerLink="">Back to home</a>
+} @else {
+    <p>Could not find this playbook!</p>
+}

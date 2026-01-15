@@ -8,7 +8,7 @@
         <h4>Dawn Questions</h4>
         <ul>
             @for(dawnQuestion of item().dawnQuestions; track $index) {
-                <li [class.shepu-unmarked]="!dawnQuestion.marked"><span><input type="checkbox" disabled [checked]="dawnQuestion.marked"></span>&nbsp;{{ dawnQuestion.description}}</li>
+                <li [class.shepu-unmarked]="!dawnQuestion.bMarked"><span><input type="checkbox" disabled [checked]="dawnQuestion.bMarked"></span>&nbsp;{{ dawnQuestion.description}}</li>
             }  
         </ul>
     </section>

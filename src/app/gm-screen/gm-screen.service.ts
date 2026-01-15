@@ -35,29 +35,30 @@ export class GmScreenService {
   public fetchPlaybooks(): Observable<GmScreenItemModel[]> {
     return this._apiService.fetchPlayers().pipe(
       switchMap(
-        (players: PlayersModel) => {
-          const transformedPlayers: GmScreenItemModel[] = [];
-            console.log(players);
-          for(const[_, playbook] of Object.entries(players)) {
-            transformedPlayers.push({
-              name: playbook.Name,
-              masksUsed:  0,
-              masksTotal: -2 + Object.entries(playbook["The Mask Of The Future"]).length + Object.entries(playbook["The Mask Of The Past"]).length,
-              dawnQuestions: Object.values(playbook["Dawn Questions"]).map( (val, index) => {return {description: val, marked: index < 5}}),
-              conditions: playbook.Conditions,
-              abilities: {
-                vitality: playbook.Abilities.Vitality,
-                composure: playbook.Abilities.Composure,
-                reason: playbook.Abilities.Reason,
-                presence: playbook.Abilities.Presence,
-                sensitivity: playbook.Abilities.Sensitivity,
-              }
-            });
-          }
-          return of(transformedPlayers);
-        },
+        (players: PlayersModel) => of(this._transformPlayers(players)),
       )
     )
   }  
+
+  private _transformPlayers(players: PlayersModel) {
+    const transformedPlayers: GmScreenItemModel[] = [];
+    for(const playbook of Object.values(players)) {
+      transformedPlayers.push({
+        name: playbook.Name,
+        masksUsed:  0,
+        masksTotal: -2 + Object.entries(playbook["The Mask Of The Future"]).length + Object.entries(playbook["The Mask Of The Past"]).length,
+        dawnQuestions: Object.values(playbook["Dawn Questions"]).map( (val, index) => {return {description: val, bMarked: index < 5}}),
+        conditions: playbook.Conditions,
+        abilities: {
+          vitality: playbook.Abilities.Vitality,
+          composure: playbook.Abilities.Composure,
+          reason: playbook.Abilities.Reason,
+          presence: playbook.Abilities.Presence,
+          sensitivity: playbook.Abilities.Sensitivity,
+        }
+      });
+    }
+    return transformedPlayers;
+  }
   
 }

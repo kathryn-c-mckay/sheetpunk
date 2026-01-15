@@ -10,6 +10,9 @@ export interface PlayersModel {
             Presence: number;
             Sensitivity: number;
         };
+        "Playbook Moves": {
+            [moveName: string]: string,
+        },
         "Dawn Questions": {
             [questionType: string]: string;
         };
