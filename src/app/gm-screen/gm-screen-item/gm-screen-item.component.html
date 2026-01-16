@@ -1,6 +1,6 @@
 <article class="shepu-gm-screen-item">
     <h3>
-        <span><a routerLink="playbook/">{{ item().name }}</a></span>
+        <span><a [routerLink]="['playbook', item().id]">{{ item().name }}</a></span>
         <span><shepu-abilities class="shepu-abilities shepu-abilities-mini" [abilities]="item().abilities"></shepu-abilities></span>
         <span>Masks: {{item().masksUsed}}/{{item().masksTotal}}</span>
     </h3>
@@ -14,14 +14,18 @@
     </section>
     <section class="shepu-gm-screen-conditions">
         <h4>Conditions</h4>
-        <ul>
-            @for(condition of item().conditions; track $index) {
-                <li>{{ condition }}</li>
-            }  
-        </ul>
+        @if (item().conditions.length) {
+            <ul>
+                @for(condition of item().conditions; track $index) {
+                    <li>{{ condition }}</li>
+                }  
+            </ul>
+        } @else {
+            <p>None</p>
+        }
     </section>
     <section class="shepu-gm-screen-personal-quarters">
         <h4>Personal Quarters</h4>
-        <shepu-personal-quarters [editable]="false"></shepu-personal-quarters>
+        <shepu-personal-quarters [data]="item().personalQuarters" [editable]="false"></shepu-personal-quarters>
     </section>
 </article>

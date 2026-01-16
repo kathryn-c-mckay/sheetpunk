@@ -1,10 +1,6 @@
 <form action="">
-    <input type="checkbox" name="" id="" checked disabled>
-    <input type="checkbox" name="" id="" checked disabled>
-    <input type="checkbox" name="" id="" checked disabled>
-    <input type="checkbox" name="" id="" disabled>
-    <input type="checkbox" name="" id="" disabled>
-    <input type="checkbox" name="" id="" disabled>
-    <input type="checkbox" name="" id="" disabled>
-    <input type="checkbox" name="" id="" disabled>
+    @for( item of data(); track $index) {
+        <input type="checkbox" [title]="item.name" [name]="item.name" id="" [checked]="item.checked" [attr.disabled]="true">
+    }
 </form>
+<!-- TODO: Make small and big mode -->

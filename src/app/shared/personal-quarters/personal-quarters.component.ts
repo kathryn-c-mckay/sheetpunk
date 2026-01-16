@@ -7,4 +7,5 @@ import { Component, input } from '@angular/core';
 })
 export class PersonalQuartersComponent {
   public editable = input<boolean>(true);
+  public data = input.required<{name: string; checked: boolean}[]>();
 }

@@ -4,28 +4,6 @@ import { GmScreenItemModel } from './gm-screen-item/gm-screen-item.model';
 import { Observable, of, switchMap } from 'rxjs';
 import { PlayersModel } from '../shared/players.model';
 
-const PLAYBOOK_SAMPLES = [{
-          name: "The 'Merican",
-          masksUsed: 4,
-          masksTotal: 7,
-          dawnQuestions: [
-            {description: "Did you do something to cause others to question your sexuality?"},
-            {description: "Have you compromised the integrity of a banana?"},
-            {description: "Did you do something just because you felt like it?"},
-          ],
-          conditions: [
-            "Opium-Addled",
-            "Phantom Limb Pain",
-          ],
-          abilities: {
-            vitality: 2,
-            composure: 0,
-            reason: 0,
-            presence: 2,
-            sensitivity: 1,
-          }
-        } as GmScreenItemModel];
-
 @Injectable({
   providedIn: 'root',
 })
@@ -42,20 +20,25 @@ export class GmScreenService {
 
   private _transformPlayers(players: PlayersModel) {
     const transformedPlayers: GmScreenItemModel[] = [];
-    for(const playbook of Object.values(players)) {
+    for(const [id, playbook] of Object.entries(players)) {
       transformedPlayers.push({
-        name: playbook.Name,
-        masksUsed:  0,
-        masksTotal: -2 + Object.entries(playbook["The Mask Of The Future"]).length + Object.entries(playbook["The Mask Of The Past"]).length,
-        dawnQuestions: Object.values(playbook["Dawn Questions"]).map( (val, index) => {return {description: val, bMarked: index < 5}}),
-        conditions: playbook.Conditions,
-        abilities: {
-          vitality: playbook.Abilities.Vitality,
-          composure: playbook.Abilities.Composure,
-          reason: playbook.Abilities.Reason,
-          presence: playbook.Abilities.Presence,
-          sensitivity: playbook.Abilities.Sensitivity,
-        }
+        id: id,
+        name: playbook.name,
+        masksUsed:  playbook.masks.reduce((prev, next) => {
+          return prev + (next.checked && next.name.toLowerCase() !== "rules" ? 1 : 0);
+        }, 0),
+        masksTotal: playbook.masks.reduce((prev, next) => {
+          return prev + (next.name.toLowerCase() !== "rules" ? 1 : 0);
+        }, 0),
+        dawnQuestions: Object.values(playbook.dawnQuestions).map( (val, index) => {
+          return {
+            description: val.description,
+            bMarked: val.checked && index >= 3
+          }
+        }),
+        conditions: playbook.conditions,
+        abilities: ApiService.convertAbilities(playbook),
+        personalQuarters: playbook.personalQuarters,
       });
     }
     return transformedPlayers;

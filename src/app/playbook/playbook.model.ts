@@ -7,14 +7,12 @@ export interface PlaybookModel {
     moves: MoveModel[];
     conditions: string[];
     abilities: AbilitiesModel;
-    dawnQuestions: {id: string; description: string, bMarked: boolean}[];
-    masks: {
-            maskTypeName: string;
-            maskData: {
-                id: string;
-                description: string;
-                name: string;
-                bMarked: boolean;
-            }[];
-    }[];
+    dawnQuestions: {id: string; description: string, bEditable: boolean, bMarked: boolean}[];
+    masks: Map<string, {
+            id: string;
+            description: string;
+            name: string;
+            bMarked: boolean;
+        }[]
+    >;
 }

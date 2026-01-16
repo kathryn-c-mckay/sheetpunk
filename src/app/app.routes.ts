@@ -8,7 +8,7 @@ export const routes: Routes = [
         component: GmScreenComponent,
     },
     {
-        path: 'playbook',
+        path: 'playbook/:id',
         component: PlaybookComponent,
-    }
+    },
 ];

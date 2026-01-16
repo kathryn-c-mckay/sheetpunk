@@ -1,28 +1,35 @@
 export interface PlayersModel {
     [playbook: string]: {
-        Name: string;
-        Description: string;
-        Conditions: string[];
-        Abilities: {
-            Vitality: number;
-            Composure: number;
-            Reason: number;
-            Presence: number;
-            Sensitivity: number;
-        };
-        "Playbook Moves": {
-            [moveName: string]: string,
-        },
-        "Dawn Questions": {
-            [questionType: string]: string;
-        };
-        "The Mask Of The Future": {
-            "Rules": string;
-            [mask: string]: string;
-        };
-        "The Mask Of The Past": {
-            "Rules": string;
-            [mask: string]: string;
-        };
+        name: string;
+        description: string;
+        conditions: string[];
+        abilities: {
+            description: string;
+            value: number;
+        }[];
+        playbookMoves: {
+            name: string;
+            description: string;
+            editable: boolean;
+            checked: boolean;
+        }[];
+        dawnQuestions: {
+            description: string;
+            editable: boolean;
+            checked: boolean;
+        }[];
+        masks: {
+            type: string;
+            name: string;
+            description: string;
+            editable: boolean;
+            checked: boolean;
+        }[];
+        // TODO: should this pattern be a type? Or a series of types to unionize?? Wait, don't unionize!! That costs money!!!
+        personalQuarters: {
+            name: string;
+            editable: boolean;
+            checked: boolean;
+        }[];
     }
 }
