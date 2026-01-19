@@ -25,7 +25,6 @@ export interface PlayersModel {
             editable: boolean;
             checked: boolean;
         }[];
-        // TODO: should this pattern be a type? Or a series of types to unionize?? Wait, don't unionize!! That costs money!!!
         personalQuarters: {
             name: string;
             editable: boolean;

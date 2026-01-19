@@ -11,7 +11,6 @@ export class PlaybookService {
   constructor(private _apiService: ApiService) {}
   
   public fetchPlaybook(id: string): Observable<PlaybookModel> {
-    // TODO: handle when player cannot be found.
     return this._apiService.fetchPlayers().pipe(
       switchMap(
         (players: PlayersModel) => of(this._transformPlayers(players, id)),
@@ -43,7 +42,6 @@ export class PlaybookService {
     }
   }
 
-  // TODO: there must be a better way with that function signature
   private _transformToMasks(playbook: {masks: {type: string; name: string; description: string;editable: boolean;checked: boolean;}[]}): Map<string,{id: string; description: string; name: string; bMarked: boolean}[]> {
     const result = new Map<string, {id: string; description: string; name: string; bMarked: boolean}[]>();
 

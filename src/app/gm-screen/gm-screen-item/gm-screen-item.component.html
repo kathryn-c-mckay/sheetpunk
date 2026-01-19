@@ -2,13 +2,13 @@
     <h3>
         <span><a [routerLink]="['playbook', item().id]">{{ item().name }}</a></span>
         <span><shepu-abilities class="shepu-abilities shepu-abilities-mini" [abilities]="item().abilities"></shepu-abilities></span>
-        <span>Masks: {{item().masksUsed}}/{{item().masksTotal}}</span>
+        <span>Masks Remaining: {{ masksRemaining() }}/{{item().masksTotal}}</span>
     </h3>
     <section class="shepu-gm-screen-dawn-questions">
         <h4>Dawn Questions</h4>
         <ul>
             @for(dawnQuestion of item().dawnQuestions; track $index) {
-                <li [class.shepu-unmarked]="!dawnQuestion.bMarked"><span><input type="checkbox" disabled [checked]="dawnQuestion.bMarked"></span>&nbsp;{{ dawnQuestion.description}}</li>
+                <li [class.shepu-unmarked]="!dawnQuestion.bMarked"><span><input type="checkbox" disabled [checked]="dawnQuestion.bCompleted"></span>&nbsp;{{ dawnQuestion.description}}</li>
             }  
         </ul>
     </section>

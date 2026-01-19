@@ -17,8 +17,6 @@
         <h2>Dawn Questions</h2>
         <ul>
             @for(dawnQuestion of playbookData()!.dawnQuestions; track dawnQuestion.id) {
-                <!-- TODO: figure out how checked, disabled interact with screen readers -->
-                 <!-- TODO: grey out ones that have not been checked, reorder potentially, & italicize nonremovable ones? -->
                 <li><input type="checkbox" name="'checkbox-'+ dawnQuestion.id" [id]="'checkbox-'+ dawnQuestion.id" [disabled]="!dawnQuestion.bEditable" [checked]="dawnQuestion.bMarked">{{dawnQuestion.description}}</li>
             }
         </ul>
@@ -44,8 +42,6 @@
 } @else if (!(bPlaybookLoading())) {
     <p>Could not find this playbook!</p>
 } @else {
-    <!-- TODO: make this fade in or something so it's softer -->
-     <!-- TODO: make the content fade in or something too -->
     <div style="height: 50vh">Loading...</div>
 }
 <a routerLink="">Back to home</a>

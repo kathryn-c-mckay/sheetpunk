@@ -1,4 +1,4 @@
-import { Component, input } from '@angular/core';
+import { Component, computed, input } from '@angular/core';
 import { GmScreenItemModel } from './gm-screen-item.model';
 import { RouterLink } from '@angular/router';
 import { AbilitiesComponent } from '../../shared/abilities/abilities.component';
@@ -11,4 +11,5 @@ import { PersonalQuartersComponent } from '../../shared/personal-quarters/person
 })
 export class GmScreenItemComponent {
   public item = input.required<GmScreenItemModel>();
+  public masksRemaining = computed<number>(() => this.item().masksTotal - this.item().masksUsed);
 }

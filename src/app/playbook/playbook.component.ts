@@ -4,12 +4,11 @@ import { PlaybookService } from './playbook.service';
 import { AbilitiesComponent } from '../shared/abilities/abilities.component';
 import { PlaybookModel } from './playbook.model';
 import { Observable, of } from 'rxjs';
-import { AsyncPipe } from '@angular/common';
 import { toObservable } from '@angular/core/rxjs-interop';
 
 @Component({
   selector: 'shepu-playbook',
-  imports: [RouterLink, AsyncPipe, AbilitiesComponent],
+  imports: [RouterLink, AbilitiesComponent],
   templateUrl: './playbook.component.html',
 })
 export class PlaybookComponent implements OnInit {
@@ -43,10 +42,8 @@ export class PlaybookComponent implements OnInit {
   }
 
   private _doFetchPlaybook(id: string): void {
-    console.log('got ' + id);
     const pbSubscription = this._playbookService.fetchPlaybook(id).subscribe(
       (playbook) => {
-        console.log('found the playbook!')
         this.playbookData.set(playbook);
         setTimeout(() => {
           this.bPlaybookLoading.set(false);

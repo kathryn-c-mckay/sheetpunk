@@ -4,9 +4,8 @@ export interface GmScreenItemModel {
     name: string;
     masksUsed: number;
     masksTotal: number;
-    dawnQuestions: {description: string, bMarked: boolean}[];
+    dawnQuestions: {description: string, bMarked: boolean, bCompleted: boolean}[];
     conditions: string[];
     abilities: AbilitiesModel;
     personalQuarters: {name: string; checked: boolean}[];
 }
-// TODO: should I merge this with PlaybookModel?

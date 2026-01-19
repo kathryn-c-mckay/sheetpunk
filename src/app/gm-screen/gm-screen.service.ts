@@ -33,7 +33,8 @@ export class GmScreenService {
         dawnQuestions: Object.values(playbook.dawnQuestions).map( (val, index) => {
           return {
             description: val.description,
-            bMarked: val.checked && index >= 3
+            bMarked: val.checked && index >= 3,
+            bCompleted: false,
           }
         }),
         conditions: playbook.conditions,

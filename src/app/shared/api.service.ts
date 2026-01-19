@@ -16,7 +16,6 @@ export class ApiService {
   }
 
   
-  // TODO: should this go in another class?
   public static convertAbilities(player: {abilities: {description: string; value: number;}[]}): AbilitiesModel {
     const abilities: {[ability:string]: number} = {};
     player.abilities.forEach((ability) => {
